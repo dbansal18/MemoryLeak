@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <% include ./header/styles.ejs %>
+  </head>
+  <body>
+    <% include ./header/nav.ejs %>
+    <div class="col-sm-3">
+    <div class="card mb-3">
+        <h3 class="card-header"><%= user.name %></h3>
+        <div class="card-body">
+            <h5 class="card-title"><%= user.email %></h5>
+        </div>
+        <img style="height: 300px; max-width: 300px; display: block; margin: auto;" src="<%= user.thumbnail %>" alt="Card image">
+        <!-- <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div> -->
+    </div>
+    </div>
+    <div class="col-sm-9">
+            <table id="myTable" class="display">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Link</th>
+                    <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (var i = 0; i < posts.length; i++) { %>
+                        <tr>
+                            <td><%= posts[i].name %></td>
+                            <td><%= posts[i].category %></td>
+                            <td><%= posts[i].link %></td>
+                            <td><%= posts[i].description %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+    </div>
+    <% include ./footer/footer.ejs %>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+  </body>
+</html>

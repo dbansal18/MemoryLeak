@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Post</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ./header/styles.ejs %>
+  </head>
+  <body>
+    <% include ./header/nav.ejs %>
+    
+    <form action = "/add" method = "POST">
+        <div class="form-group row" align="center">
+                <label for="name" class="col-sm-3 col-form-label"><h4>Name</h4></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="postName" name="postName" placeholder="Enter Post Name" required="required">
+                </div>
+            <div class="col-sm-3"></div>
+
+                <label for="description" class="col-sm-3 col-form-label"><h4>Description</h4></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="postDescription" name="postDescription" placeholder="Enter post Description" required="required">
+                </div>
+            <div class="col-sm-3"></div>
+
+            <label for="category" class="col-sm-3 col-form-label"><h4>Category</h4></label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" id="category" name="category" placeholder="Enter Post Category" required="required">
+            </div>
+            <div class="col-sm-3"></div>
+
+                <label for="postlink" class="col-sm-3 col-form-label"><h4>Link</h4></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="postlink" name="postLink" placeholder="Enter Post Link" required="required">
+                </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div align="center"><button type="submit" class="btn btn-primary" value="Register">Add</button></div>
+    </form>
+
+    <% include ./footer/footer.ejs %>
+  </body>
+</html>
